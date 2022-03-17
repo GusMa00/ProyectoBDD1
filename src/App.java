@@ -8,19 +8,19 @@ import java.sql.Statement;
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
-        // Create a variable for the connection string.
+        // Variable para la conexion 
         String connectionUrl = "jdbc:sqlserver://IDEAPAD-GAMING-:1433;databaseName=AdventureWorks2019;user=sa;password=cacas;";
 
         try (Connection con = DriverManager.getConnection(connectionUrl); Statement stmt = con.createStatement();) {
             String SQL = "SELECT TOP 10 * FROM Person.Contact";
             ResultSet rs = stmt.executeQuery(SQL);
 
-            // Iterate through the data in the result set and display it.
+            // Solucion para iterar y mostrar los resultados del query.
             while (rs.next()) {
                 System.out.println(rs.getString("FirstName") + " " + rs.getString("LastName"));
             }
         }
-        // Handle any errors that may have occurred.
+        // Handler para errores.
         catch (SQLException e) {
             e.printStackTrace();
         }
