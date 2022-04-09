@@ -3,6 +3,8 @@ import Conex.ConexionI2SS;
 import DAO.CUSDAO;
 import DAO.cus;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 
 public class ImplCustomer extends ConexionI2SS implements CUSDAO {
 
@@ -40,5 +42,34 @@ public class ImplCustomer extends ConexionI2SS implements CUSDAO {
         } finally {
             this.cerrar();
         }        
+    }
+
+    @Override
+    public void listar(cus customer) throws Exception {
+        try{
+            this.conectar();
+            PreparedStatement st= this.cone.prepareStatement("select * from Customer");            
+            ResultSet rs = st.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int numberOfColumns = rsmd.getColumnCount();
+            System.out.println(numberOfColumns);
+            while (rs.next()) {                
+                for (int i = 1; i <= numberOfColumns; i++) {
+                    if (i > 1) System.out.print(",  ");
+                    String columnValue = rs.getString(i);
+                    System.out.print(columnValue + " " );
+            }
+            System.out.println("\n");
+        }
+            rs.close();
+            st.close();
+
+
+        }catch(Exception e){
+            throw e;
+        }finally{
+            this.cerrar();
+        }
+        
     }    
 }

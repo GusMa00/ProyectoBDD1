@@ -1,6 +1,8 @@
 package ImpDAO;
 import java.sql.PreparedStatement;
 import java.util.List;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import Conex.ConexionI2SS;
 import DAO.SOHDAO;
 import DAO.soh;
@@ -8,8 +10,7 @@ import DAO.soh;
 public class ImplSOrderHeader extends ConexionI2SS implements SOHDAO {
 
     @Override
-    public void registrar(soh soheader) throws Exception {
-        // TODO Auto-generated method stub
+    public void registrar(soh soheader) throws Exception {        
         try{
             this.conectar();
             PreparedStatement st= this.cone.prepareStatement("insert into "+"Sales.SalesOrderHeader "+"Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
@@ -49,12 +50,6 @@ public class ImplSOrderHeader extends ConexionI2SS implements SOHDAO {
         
     }
 
-
-    @Override
-    public List<soh> listar() throws Exception {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
     @Override
     public void modificar(soh soheader) throws Exception {        
@@ -109,6 +104,37 @@ public class ImplSOrderHeader extends ConexionI2SS implements SOHDAO {
         } finally {
             this.cerrar();
         }
+    }
+
+
+    @Override
+    public void listar(soh soheader) throws Exception {
+        // TODO Auto-generated method stub
+        try{
+            this.conectar();
+            PreparedStatement st= this.cone.prepareStatement("select * from SalesOrderHeader");            
+            ResultSet rs = st.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int numberOfColumns = rsmd.getColumnCount();
+            System.out.println(numberOfColumns);
+            while (rs.next()) {                
+                for (int i = 1; i <= numberOfColumns; i++) {
+                    if (i > 1) System.out.print(",  ");
+                    String columnValue = rs.getString(i);
+                    System.out.print(columnValue + " " );
+            }
+            System.out.println("\n");
+        }
+            rs.close();
+            st.close();
+
+
+        }catch(Exception e){
+            throw e;
+        }finally{
+            this.cerrar();
+        }
+        
     }
     
 }
