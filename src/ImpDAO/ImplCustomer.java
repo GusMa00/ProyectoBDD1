@@ -2,12 +2,7 @@ package ImpDAO;
 import Conex.ConexionI2SS;
 import DAO.CUSDAO;
 import DAO.cus;
-import DAO.soh;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Types;
-import java.util.List;
-import java.util.ArrayList;
 
 public class ImplCustomer extends ConexionI2SS implements CUSDAO {
 
@@ -15,14 +10,14 @@ public class ImplCustomer extends ConexionI2SS implements CUSDAO {
     public void modificar(cus customer) throws Exception {
         try{
             this.conectar();
-            PreparedStatement st= this.cone.prepareStatement("update customer set PersonID = ? where CustomerID = ?");
-            st.setInt(1, customer.getCustomerID());
-            st.setInt(2, customer.getPersonID());
-            st.setInt(3, customer.getStoreID());
-            st.setInt(4, customer.getTerritoryID());
-            st.setString(5, customer.getAccountNumber());
-            st.setString(6, customer.getRowguid());
-            st.setString(7, customer.getModifiedDate());
+            PreparedStatement st= this.cone.prepareStatement("update customer set PersonID = ?, StoreID = ?, TerritoryID = ?, AccountNumber = ?, Rowguid = ?, ModifiedDate = ? where CustomerID = ?");            
+            st.setInt(1, customer.getPersonID());
+            st.setInt(2, customer.getStoreID());
+            st.setInt(3, customer.getTerritoryID());
+            st.setString(4, customer.getAccountNumber());
+            st.setString(5, customer.getRowguid());
+            st.setTimestamp(6, customer.getModifiedDate());
+            st.setInt(7, customer.getCustomerID());
             st.executeUpdate();
 
         }catch (Exception e){

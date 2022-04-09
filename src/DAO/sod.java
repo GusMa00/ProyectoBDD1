@@ -26,8 +26,8 @@ public class sod {
         return this.SalesOrderDetailID;
     }
 
-    public void setSalesOrderDetailID(int SalesOrderDetailID) {
-        this.SalesOrderDetailID = SalesOrderDetailID;
+    public static void setSalesOrderDetailID(int SalesOrderDetailID) {
+        SalesOrderDetailID = SalesOrderDetailID;
     }
 
     public String getCarrierTrackingNumber() {

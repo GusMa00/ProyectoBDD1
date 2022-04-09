@@ -1,5 +1,7 @@
 package DAO;
 
+import java.sql.Timestamp;
+
 public class cus {
     private int CustomerID;
     private int PersonID;
@@ -7,7 +9,8 @@ public class cus {
     private int TerritoryID;
     private String AccountNumber;
     private String rowguid;
-    private String ModifiedDate;
+    //private String ModifiedDate;
+    private Timestamp ModifiedDate;
 
 
     public int getCustomerID() {
@@ -58,11 +61,11 @@ public class cus {
         this.rowguid = rowguid;
     }
 
-    public String getModifiedDate() {
+    public Timestamp getModifiedDate() {
         return this.ModifiedDate;
     }
 
-    public void setModifiedDate(String ModifiedDate) {
+    public void setModifiedDate(Timestamp ModifiedDate) {
         this.ModifiedDate = ModifiedDate;
     }
 
