@@ -1,6 +1,5 @@
 package ImpDAO;
 import java.sql.PreparedStatement;
-import java.util.List;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import Conex.ConexionI2SS;
@@ -108,8 +107,7 @@ public class ImplSOrderHeader extends ConexionI2SS implements SOHDAO {
 
 
     @Override
-    public void listar(soh soheader) throws Exception {
-        // TODO Auto-generated method stub
+    public void listar(soh soheader) throws Exception {        
         try{
             this.conectar();
             PreparedStatement st= this.cone.prepareStatement("select * from SalesOrderHeader");            

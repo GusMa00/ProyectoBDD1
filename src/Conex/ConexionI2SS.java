@@ -1,11 +1,11 @@
 package Conex;
 import java.sql.*;
 public class ConexionI2SS {
-    protected Connection cone;
+    protected Connection conexion;
     private final String connectionUrl = "jdbc:sqlserver://localhost:1433;instanceName=IDEAPAD-GAMING-\\MSSQL2;databaseName=AdventureWorks2019;user=sa;password=cacas;encrypt=true;trustServerCertificate=true";
     public void conectar(){
-        try (Connection cone = DriverManager.getConnection(connectionUrl); Statement stmt = cone.createStatement();) {
-            
+        try  {
+            conexion = DriverManager.getConnection(connectionUrl);             
         }
         // Handler para errores.
         catch (SQLException e) {
@@ -14,9 +14,9 @@ public class ConexionI2SS {
     }
 
     public void cerrar() throws SQLException{
-        if (cone!= null){
-            if(!cone.isClosed()){
-                cone.close();
+        if (conexion!= null){
+            if(!conexion.isClosed()){
+                conexion.close();
             }
         }
     }

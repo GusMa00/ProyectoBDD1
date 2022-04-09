@@ -1,9 +1,7 @@
 import java.sql.*;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.ResultSetMetaData;
+
+import Demos.DemoCustomer;
+
 
 
 public class App {
@@ -11,8 +9,9 @@ public class App {
         System.out.println("Comprobacion de conexion:");
         System.out.println("");
         //Conectorv1.ins1();
-        Conectorv1.ins2();
+        //Conectorv1.ins2();
         //Conectorv1.mysqlconn();
+        DemoCustomer.listcus();
         // Variable para la conexion 
     }        
     

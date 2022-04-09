@@ -12,7 +12,7 @@ public class ImplSOffer extends ConexionI2SS implements SOPDAO{
     public void modificar(sop soproduct) throws Exception {        
         try{
             this.conectar();
-            PreparedStatement st= this.cone.prepareStatement("update SpecialOfferProduct  SET ProductID = ?, Rowguid = ?, ModifiedDate = ? WHERE SpecialOfferID = ?");
+            PreparedStatement st= this.conexion.prepareStatement("update SpecialOfferProduct  SET ProductID = ?, Rowguid = ?, ModifiedDate = ? WHERE SpecialOfferID = ?");
             st.setInt(1, soproduct.getProductID());
             st.setString(2, soproduct.getRowguid());
             st.setString(3, soproduct.getModifiedDate());
@@ -31,7 +31,7 @@ public class ImplSOffer extends ConexionI2SS implements SOPDAO{
     public void eliminar(sop soproduct) throws Exception {        
         try{
             this.conectar();
-            PreparedStatement st= this.cone.prepareStatement("delete from SpecialOfferProduct where SpecialOfferID = ?");
+            PreparedStatement st= this.conexion.prepareStatement("delete from SpecialOfferProduct where SpecialOfferID = ?");
             st.setInt(1, soproduct.getSpecialOfferID());
             st.executeUpdate();
 

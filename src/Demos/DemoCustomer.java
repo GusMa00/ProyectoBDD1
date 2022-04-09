@@ -16,7 +16,18 @@ public class DemoCustomer {
             CUSDAO dao = new ImplCustomer();
             dao.eliminar(customer);
         }catch(Exception e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public static void listcus(){
+        cus customer = new cus();
+        customer.setCustomerID(1);
+        try{
+            CUSDAO dao = new ImplCustomer();
+            dao.listar(customer);
+        }catch(Exception e){
+            e.printStackTrace();
         }
     }
 }

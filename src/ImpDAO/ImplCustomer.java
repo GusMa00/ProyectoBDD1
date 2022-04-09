@@ -12,7 +12,7 @@ public class ImplCustomer extends ConexionI2SS implements CUSDAO {
     public void modificar(cus customer) throws Exception {
         try{
             this.conectar();
-            PreparedStatement st= this.cone.prepareStatement("update customer set PersonID = ?, StoreID = ?, TerritoryID = ?, AccountNumber = ?, Rowguid = ?, ModifiedDate = ? where CustomerID = ?");            
+            PreparedStatement st= this.conexion.prepareStatement("update customer set PersonID = ?, StoreID = ?, TerritoryID = ?, AccountNumber = ?, Rowguid = ?, ModifiedDate = ? where CustomerID = ?");            
             st.setInt(1, customer.getPersonID());
             st.setInt(2, customer.getStoreID());
             st.setInt(3, customer.getTerritoryID());
@@ -34,7 +34,7 @@ public class ImplCustomer extends ConexionI2SS implements CUSDAO {
     public void eliminar(cus customer) throws Exception {
         try{
             this.conectar();
-            PreparedStatement st= this.cone.prepareStatement("delete from customer where id = ?");
+            PreparedStatement st= this.conexion.prepareStatement("delete from Sales.Customer where id = ?");
             st.setInt(1, customer.getCustomerID());
             st.executeUpdate();
         }catch (Exception e){
@@ -48,7 +48,7 @@ public class ImplCustomer extends ConexionI2SS implements CUSDAO {
     public void listar(cus customer) throws Exception {
         try{
             this.conectar();
-            PreparedStatement st= this.cone.prepareStatement("select * from Customer");            
+            PreparedStatement st = this.conexion.prepareStatement("select * from Sales.Customer");            
             ResultSet rs = st.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
             int numberOfColumns = rsmd.getColumnCount();
@@ -61,10 +61,6 @@ public class ImplCustomer extends ConexionI2SS implements CUSDAO {
             }
             System.out.println("\n");
         }
-            rs.close();
-            st.close();
-
-
         }catch(Exception e){
             throw e;
         }finally{
