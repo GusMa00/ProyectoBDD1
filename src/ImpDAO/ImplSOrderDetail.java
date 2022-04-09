@@ -1,18 +1,12 @@
 package ImpDAO;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
-import java.util.ArrayList;
-import java.util.List;
-
-
 import Conex.ConexionI2SS;
 import DAO.SODDAO;
 import DAO.sod;
 
 public class ImplSOrderDetail extends ConexionI2SS implements SODDAO {
-
     @Override
     public void registrar(sod sodetail) throws Exception {
         try{
@@ -72,7 +66,6 @@ public class ImplSOrderDetail extends ConexionI2SS implements SODDAO {
             PreparedStatement st= this.cone.prepareStatement("delete from SalesOrderDetail where SalesOrderDetailID = ?");
             st.setInt(1, sodetail.getSalesOrderDetailID());
             st.executeUpdate();
-
         }catch (Exception e){
             throw e;
         } finally {
@@ -101,8 +94,6 @@ public class ImplSOrderDetail extends ConexionI2SS implements SODDAO {
         }
             rs.close();
             st.close();
-
-
         }catch(Exception e){
             throw e;
         }finally{
