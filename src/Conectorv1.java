@@ -28,7 +28,7 @@ public class Conectorv1 {
         String connectionUrl = "jdbc:sqlserver://localhost:1433;instanceName=IDEAPAD-GAMING-\\MSSQL2;databaseName=AdventureWorks2019;user=sa;password=cacas;encrypt=true;trustServerCertificate=true";
 
         try (Connection con = DriverManager.getConnection(connectionUrl); Statement stmt = con.createStatement();) {
-            String SQL = "SELECT TOP 5 * FROM Person.Person";
+            String SQL = "SELECT TOP 5 * FROM Person.ContactType";
             ResultSet rs = stmt.executeQuery(SQL);
             ResultSetMetaData rsmd = rs.getMetaData();
             int numberOfColumns = rsmd.getColumnCount();

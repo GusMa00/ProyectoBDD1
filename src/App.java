@@ -10,9 +10,9 @@ public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Comprobacion de conexion:");
         System.out.println("");
-        Conectorv1.ins1();
+        //Conectorv1.ins1();
         Conectorv1.ins2();
-        Conectorv1.mysqlconn();
+        //Conectorv1.mysqlconn();
         // Variable para la conexion 
     }        
     

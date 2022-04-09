@@ -10,6 +10,9 @@ public class sod {
     private String UnitPrice;
     private String UnitPriceDiscount;
     private String LineTotal;
+    private String rowguid;
+    private String ModifiedDate;
+
 
     public int getSalesOrderID() {
         return this.SalesOrderID;
@@ -82,5 +85,22 @@ public class sod {
     public void setLineTotal(String LineTotal) {
         this.LineTotal = LineTotal;
     }
+
+    public String getRowguid() {
+        return this.rowguid;
+    }
+
+    public void setRowguid(String rowguid) {
+        this.rowguid = rowguid;
+    }
+
+    public String getModifiedDate() {
+        return this.ModifiedDate;
+    }
+
+    public void setModifiedDate(String ModifiedDate) {
+        this.ModifiedDate = ModifiedDate;
+    }
+    
     
 }

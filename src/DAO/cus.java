@@ -6,6 +6,9 @@ public class cus {
     private int StoreID;
     private int TerritoryID;
     private String AccountNumber;
+    private String rowguid;
+    private String ModifiedDate;
+
 
     public int getCustomerID() {
         return this.CustomerID;
@@ -46,5 +49,22 @@ public class cus {
     public void setAccountNumber(String AccountNumber) {
         this.AccountNumber = AccountNumber;
     }
+
+    public String getRowguid() {
+        return this.rowguid;
+    }
+
+    public void setRowguid(String rowguid) {
+        this.rowguid = rowguid;
+    }
+
+    public String getModifiedDate() {
+        return this.ModifiedDate;
+    }
+
+    public void setModifiedDate(String ModifiedDate) {
+        this.ModifiedDate = ModifiedDate;
+    }
+
 
 }

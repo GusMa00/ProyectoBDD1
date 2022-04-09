@@ -24,6 +24,9 @@ public class soh {
     private String Freight;
     private String TotalDue;
     private String Comment;
+    private String rowguid;
+    private String ModifiedDate;
+
 
     public int getSalesOrderID() {
         return this.SalesOrderID;
@@ -212,6 +215,23 @@ public class soh {
     public void setComment(String Comment) {
         this.Comment = Comment;
     }
+
+    public String getRowguid() {
+        return this.rowguid;
+    }
+
+    public void setRowguid(String rowguid) {
+        this.rowguid = rowguid;
+    }
+
+    public String getModifiedDate() {
+        return this.ModifiedDate;
+    }
+
+    public void setModifiedDate(String ModifiedDate) {
+        this.ModifiedDate = ModifiedDate;
+    }
+    
 
     
 }
