@@ -7,18 +7,35 @@ import DAO.sop;
 import ImpDAO.ImplSOffer;
 
 public class DemoSpecialOffer {
-    /*
-    public static void delcus(){
-        Scanner sc= new Scanner(System.in);
-        sop sofferproduct = new sop();
-        System.out.println("Introduzca el ID a eliminar: ");
-        int sopid = sc.nextInt();
-        sofferproduct.setSpecialOfferID(sopid);
-        try{   
-            SOPDAO dao = new ImplSOffer();
-            dao.eliminar(sofferproduct);
-        }catch(Exception e){
-            System.out.println(e.getMessage());
+    public static void demogenerica(){
+        System.out.println("Seleccione una opcion: \n");
+        System.out.println("1. R");
+        System.out.println("2. U");
+        Scanner mdg = new Scanner(System.in);
+        int op = mdg.nextInt();
+        switch(op){
+            case 1:
+                listsop();
+            break;
+            case 2: 
+                actsop();
+            break;
         }
-    }*/
+    }    
+
+    public static void listsop(){
+        sop SpecialOProduct = new sop();
+        SpecialOProduct.setSpecialOfferID(1);
+        try{
+            SOPDAO dao = new ImplSOffer();
+            dao.listar(SpecialOProduct);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+    }
+    public static void actsop(){
+
+    }
+
 }

@@ -6,21 +6,22 @@ import DAO.cus;
 import ImpDAO.ImplCustomer;
 
 public class DemoCustomer {
-    /*
-    public static void delcus(){
-        Scanner sc= new Scanner(System.in);
-        cus customer = new cus();
-        System.out.println("Introduzca el ID a eliminar: ");
-        int cusid = sc.nextInt();
-        customer.setCustomerID(cusid);
-        try{   
-            CUSDAO dao = new ImplCustomer();
-            dao.eliminar(customer);
-        }catch(Exception e){
-            e.printStackTrace();
+
+    public static void demogenerica(){
+        System.out.println("Seleccione una opcion: \n");        
+        System.out.println("1. R");
+        System.out.println("2. U");        
+        Scanner mdg = new Scanner(System.in);
+        int op = mdg.nextInt();
+        switch(op){
+            case 1:
+                listcus();
+            break;
+            case 2: 
+                actcus();
+            break;
         }
     }
-    */
 
     public static void listcus(){
         cus customer = new cus();
@@ -31,5 +32,9 @@ public class DemoCustomer {
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    public static void actcus(){
+
     }
 }

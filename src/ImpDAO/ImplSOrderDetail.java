@@ -79,7 +79,7 @@ public class ImplSOrderDetail extends ConexionI2SS implements SODDAO {
     public void listar(sod sodetail) throws Exception {        
         try{
             this.conectar();
-            PreparedStatement st= this.conexion.prepareStatement("select * from SalesOrderDetail");            
+            PreparedStatement st= this.conexion.prepareStatement("select * from Sales.SalesOrderDetail");            
             ResultSet rs = st.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
             int numberOfColumns = rsmd.getColumnCount();
