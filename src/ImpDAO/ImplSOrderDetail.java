@@ -11,7 +11,7 @@ public class ImplSOrderDetail extends ConexionI2SS implements SODDAO {
     public void registrar(sod sodetail) throws Exception {
         try{
             this.conectar();
-            PreparedStatement st= this.cone.prepareStatement("insert into "+"Sales.Customer "+"Values(?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement st= this.conexion.prepareStatement("insert into "+"Sales.Customer "+"Values(?,?,?,?,?,?,?,?,?,?,?)");
             st.setInt(1, sodetail.getSalesOrderID());
             st.setInt(2, sodetail.getSalesOrderDetailID());
             st.setString(3, sodetail.getCarrierTrackingNumber());
@@ -37,7 +37,7 @@ public class ImplSOrderDetail extends ConexionI2SS implements SODDAO {
     public void modificar(sod sodetail) throws Exception {        
         try{
             this.conectar();
-            PreparedStatement st= this.cone.prepareStatement("update customer set SalesOrderID = ?, CarrierTrackingNumber = ?, OrderQty = ?, ProductID = ?, SpecialOfferID= ?, UnitPrice = ?, UnitPriceDiscount = ?, LineTotal = ?, rowguid = ?, ModifiedDate = ? where SalesOrderDetailID = ?");            
+            PreparedStatement st= this.conexion.prepareStatement("update customer set SalesOrderID = ?, CarrierTrackingNumber = ?, OrderQty = ?, ProductID = ?, SpecialOfferID= ?, UnitPrice = ?, UnitPriceDiscount = ?, LineTotal = ?, rowguid = ?, ModifiedDate = ? where SalesOrderDetailID = ?");            
             st.setInt(1, sodetail.getSalesOrderID());
             st.setString(2, sodetail.getCarrierTrackingNumber());
             st.setInt(3, sodetail.getOrderQty());
@@ -63,7 +63,7 @@ public class ImplSOrderDetail extends ConexionI2SS implements SODDAO {
     public void eliminar(sod sodetail) throws Exception {        
         try{
             this.conectar();
-            PreparedStatement st= this.cone.prepareStatement("delete from SalesOrderDetail where SalesOrderDetailID = ?");
+            PreparedStatement st= this.conexion.prepareStatement("delete from SalesOrderDetail where SalesOrderDetailID = ?");
             st.setInt(1, sodetail.getSalesOrderDetailID());
             st.executeUpdate();
         }catch (Exception e){
@@ -79,7 +79,7 @@ public class ImplSOrderDetail extends ConexionI2SS implements SODDAO {
     public void listar(sod sodetail) throws Exception {        
         try{
             this.conectar();
-            PreparedStatement st= this.cone.prepareStatement("select * from SalesOrderDetail");            
+            PreparedStatement st= this.conexion.prepareStatement("select * from SalesOrderDetail");            
             ResultSet rs = st.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
             int numberOfColumns = rsmd.getColumnCount();

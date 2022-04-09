@@ -30,8 +30,9 @@ public class ImplCustomer extends ConexionI2SS implements CUSDAO {
         
     }
 
+    /*
     @Override
-    public void eliminar(cus customer) throws Exception {
+    public void eliminar (cus customer) throws Exception {
         try{
             this.conectar();
             PreparedStatement st= this.conexion.prepareStatement("delete from Sales.Customer where id = ?");
@@ -42,7 +43,7 @@ public class ImplCustomer extends ConexionI2SS implements CUSDAO {
         } finally {
             this.cerrar();
         }        
-    }
+    }*/
 
     @Override
     public void listar(cus customer) throws Exception {

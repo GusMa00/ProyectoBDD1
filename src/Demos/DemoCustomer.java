@@ -6,6 +6,7 @@ import DAO.cus;
 import ImpDAO.ImplCustomer;
 
 public class DemoCustomer {
+    /*
     public static void delcus(){
         Scanner sc= new Scanner(System.in);
         cus customer = new cus();
@@ -19,6 +20,7 @@ public class DemoCustomer {
             e.printStackTrace();
         }
     }
+    */
 
     public static void listcus(){
         cus customer = new cus();
