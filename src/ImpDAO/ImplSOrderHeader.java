@@ -12,8 +12,7 @@ public class ImplSOrderHeader extends ConexionI2SS implements SOHDAO {
     public void registrar(soh soheader) throws Exception {        
         try{
             this.conectar();
-            PreparedStatement st= this.conexion.prepareStatement("insert into "+"Sales.SalesOrderHeader "+"Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            st.setInt(1,soheader.getSalesOrderID());
+            PreparedStatement st= this.conexion.prepareStatement("insert into "+"Sales.SalesOrderHeader (RevisionNumber,OrderDate,DueDate,ShipDate,Status,OnlineOrderFlag) "+"Values(SYSDATETIME(),SYSDATETIME(),SYSDATETIME(),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NEWID(),SYSDATETIME())");            
             st.setInt(2,soheader.getRevisionNumber());
             st.setString(3,soheader.getOrderDate());
             st.setString(4,soheader.getDueDate());
@@ -54,7 +53,7 @@ public class ImplSOrderHeader extends ConexionI2SS implements SOHDAO {
     public void modificar(soh soheader) throws Exception {        
         try{
             this.conectar();
-            PreparedStatement st= this.conexion.prepareStatement("update customer set SalesOrderID = ?, CarrierTrackingNumber = ?, OrderQty = ?, ProductID = ?, SpecialOfferID= ?, UnitPrice = ?, UnitPriceDiscount = ?, LineTotal = ?, rowguid = ?, ModifiedDate = ? where SalesOrderID = ?");                        
+            PreparedStatement st= this.conexion.prepareStatement("update Sales.SalesOrderHeader set SalesOrderID = ?, CarrierTrackingNumber = ?, OrderQty = ?, ProductID = ?, SpecialOfferID= ?, UnitPrice = ?, UnitPriceDiscount = ?, LineTotal = ?, rowguid = ?, ModifiedDate = ? where SalesOrderID = ?");                        
             st.setInt(1,soheader.getRevisionNumber());
             st.setString(2,soheader.getOrderDate());
             st.setString(3,soheader.getDueDate());
@@ -94,7 +93,7 @@ public class ImplSOrderHeader extends ConexionI2SS implements SOHDAO {
     public void eliminar(soh soheader) throws Exception {        
         try{
             this.conectar();
-            PreparedStatement st= this.conexion.prepareStatement("delete from SalesOrderHeader where SalesOrderID = ?");
+            PreparedStatement st= this.conexion.prepareStatement("delete from Sales.SalesOrderHeader where SalesOrderID = ?");
             st.setInt(1, soheader.getSalesOrderID());
             st.executeUpdate();
 
@@ -110,7 +109,7 @@ public class ImplSOrderHeader extends ConexionI2SS implements SOHDAO {
     public void listar(soh soheader) throws Exception {        
         try{
             this.conectar();
-            PreparedStatement st= this.conexion.prepareStatement("select * from SalesOrderHeader");            
+            PreparedStatement st= this.conexion.prepareStatement("select * from Sales.SalesOrderHeader");            
             ResultSet rs = st.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
             int numberOfColumns = rsmd.getColumnCount();
