@@ -1,7 +1,7 @@
 import java.sql.*;
 import java.util.Scanner;
-
 import Demos.DemoCustomer;
+import Demos.DemoNuevaOrden;
 import Demos.DemoSalesOrderDetail;
 import Demos.DemoSalesOrderHEader;
 import Demos.DemoSpecialOffer;
@@ -16,7 +16,7 @@ public class App {
         //Conectorv1.ins2();
         //Conectorv1.mysqlconn();
         //DemoCustomer.listcus();
-        DemoSalesOrderDetail.listsod();
+        //DemoSalesOrderDetail.listsod();
         // Variable para la conexion 
         System.out.println("Seleccione un demo: \n");
         System.out.println("1. Customer");
@@ -38,12 +38,9 @@ public class App {
             case 4: 
                 DemoSpecialOffer.demogenerica();
             break;
+            case 5: 
+                //DemoNuevaOrden.;
+            break;
         }
-    }            
-
-    public static void metdatasqls() throws Exception{
-        
-    }
-
-    
+    } 
 }

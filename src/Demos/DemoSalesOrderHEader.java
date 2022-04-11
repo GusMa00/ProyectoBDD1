@@ -1,6 +1,7 @@
 package Demos;
 
 import java.util.Scanner;
+
 import DAO.SOHDAO;
 import DAO.soh;
 import ImpDAO.ImplSOrderHeader;
@@ -17,21 +18,46 @@ public class DemoSalesOrderHEader {
         int op = mdg.nextInt();
         switch(op){
             case 1:
+                cresoh();
             break;
             case 2: 
+                listsoh();
             break;
             case 3:
+                actsoh();
             break;
             case 4: 
+                delsoh();
             break;
         }
     }
-    public static void delcus(){
+
+    public static void cresoh(){
+
+    }
+
+
+    public static void listsoh(){
+        soh SalOrderHead = new soh();
+        SalOrderHead.setSalesOrderID(1);
+        try{
+            SOHDAO dao = new ImplSOrderHeader();
+            dao.listar(SalOrderHead);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void actsoh(){
+        
+    }
+
+    public static void delsoh(){
         Scanner sc= new Scanner(System.in);
         soh sorderheader = new soh();
         System.out.println("Introduzca el ID a eliminar: ");
-        int sodid = sc.nextInt();
-        sorderheader.setSalesOrderID(sodid);
+        int sohid = sc.nextInt();
+        sorderheader.setSalesOrderID(sohid);
         try{   
             SOHDAO dao = new ImplSOrderHeader();
             dao.eliminar(sorderheader);
