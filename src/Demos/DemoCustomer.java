@@ -35,7 +35,19 @@ public class DemoCustomer {
     }
 
     public static void actcus(){
-        
+        cus customer = new cus();        
+        System.out.println("Demo U");
+        customer.setCustomerID(30121);
+        customer.setPersonID(1999);
+        customer.setStoreID(294);
+        customer.setTerritoryID(4);
+        try{
+            CUSDAO dao = new ImplCustomer();
+            dao.modificar(customer);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
 
     }
 }

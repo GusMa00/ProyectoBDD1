@@ -35,6 +35,17 @@ public class DemoSpecialOffer {
 
     }
     public static void actsop(){
+        sop SpecialOProduct = new sop();
+        SpecialOProduct.setSpecialOfferID(16);
+        SpecialOProduct.setSpecialOfferID(16);
+        SpecialOProduct.setProductID(990);
+        SpecialOProduct.setRowguid("5B261ECC-BEAA-4DCC-ABDF-091C718656B0");
+        try{
+            SOPDAO dao = new ImplSOffer();
+            dao.modificar(SpecialOProduct);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
     }
 
