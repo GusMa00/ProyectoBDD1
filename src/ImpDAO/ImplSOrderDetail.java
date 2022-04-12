@@ -11,18 +11,14 @@ public class ImplSOrderDetail extends ConexionI2SS implements SODDAO {
     public void registrar(sod sodetail) throws Exception {
         try{
             this.conectar();
-            PreparedStatement st= this.conexion.prepareStatement("insert into "+"Sales.Customer "+"Values(?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement st= this.conexion.prepareStatement("insert into "+"Sales.SalesOrderDetail (SalesOrderID,CarrierTrackingNumber,OrderQty,ProductID,SpecialOfferID,UnitPrice,UnitPriceDiscount,rowguid,ModifiedDate)"+"Values(?,?,?,?,?,?,?)");            
             st.setInt(1, sodetail.getSalesOrderID());
-            st.setInt(2, sodetail.getSalesOrderDetailID());
-            st.setString(3, sodetail.getCarrierTrackingNumber());
-            st.setInt(4, sodetail.getOrderQty());
-            st.setInt(5, sodetail.getProductID());
-            st.setInt(6, sodetail.getSpecialOfferID());
-            st.setString(7, sodetail.getUnitPrice());
-            st.setString(8, sodetail.getUnitPriceDiscount());
-            st.setString(9, sodetail.getLineTotal());
-            st.setString(10, sodetail.getRowguid());
-            st.setString(11, sodetail.getModifiedDate());
+            st.setString(2, sodetail.getCarrierTrackingNumber());
+            st.setInt(3, sodetail.getOrderQty());
+            st.setInt(4, sodetail.getProductID());
+            st.setInt(5, sodetail.getSpecialOfferID());
+            st.setString(6, sodetail.getUnitPrice());
+            st.setString(7, sodetail.getUnitPriceDiscount());                        
             st.executeUpdate();
 
         }catch (Exception e){
@@ -37,18 +33,15 @@ public class ImplSOrderDetail extends ConexionI2SS implements SODDAO {
     public void modificar(sod sodetail) throws Exception {        
         try{
             this.conectar();
-            PreparedStatement st= this.conexion.prepareStatement("update customer set SalesOrderID = ?, CarrierTrackingNumber = ?, OrderQty = ?, ProductID = ?, SpecialOfferID= ?, UnitPrice = ?, UnitPriceDiscount = ?, LineTotal = ?, rowguid = ?, ModifiedDate = ? where SalesOrderDetailID = ?");            
+            PreparedStatement st= this.conexion.prepareStatement("update Sales.SalesOrderDetail set SalesOrderID =?,CarrierTrackingNumber = ?, OrderQty = ?, ProductID = ?, SpecialOfferID= ?, UnitPrice = ?, UnitPriceDiscount = ?, rowguid = NEWID(), ModifiedDate = SYSDATETIME() where SalesOrderDetailID = ?");                        
             st.setInt(1, sodetail.getSalesOrderID());
             st.setString(2, sodetail.getCarrierTrackingNumber());
             st.setInt(3, sodetail.getOrderQty());
             st.setInt(4, sodetail.getProductID());
             st.setInt(5, sodetail.getSpecialOfferID());
             st.setString(6, sodetail.getUnitPrice());
-            st.setString(7, sodetail.getUnitPriceDiscount());
-            st.setString(8, sodetail.getLineTotal());
-            st.setString(9, sodetail.getRowguid());
-            st.setString(10, sodetail.getModifiedDate());            
-            st.setInt(11, sodetail.getSalesOrderDetailID());
+            st.setString(7, sodetail.getUnitPriceDiscount());                         
+            st.setInt(8, sodetail.getSalesOrderDetailID());
             st.executeUpdate();
 
         }catch (Exception e){
@@ -63,7 +56,7 @@ public class ImplSOrderDetail extends ConexionI2SS implements SODDAO {
     public void eliminar(sod sodetail) throws Exception {        
         try{
             this.conectar();
-            PreparedStatement st= this.conexion.prepareStatement("delete from SalesOrderDetail where SalesOrderDetailID = ?");
+            PreparedStatement st= this.conexion.prepareStatement("delete from Sales.SalesOrderDetail where SalesOrderDetailID = ?");
             st.setInt(1, sodetail.getSalesOrderDetailID());
             st.executeUpdate();
         }catch (Exception e){

@@ -12,15 +12,15 @@ public class ImplSOrderHeader extends ConexionI2SS implements SOHDAO {
     public void registrar(soh soheader) throws Exception {        
         try{
             this.conectar();
-            PreparedStatement st= this.conexion.prepareStatement("insert into "+"Sales.SalesOrderHeader (RevisionNumber,OrderDate,DueDate,ShipDate,Status,OnlineOrderFlag) "+"Values(SYSDATETIME(),SYSDATETIME(),SYSDATETIME(),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NEWID(),SYSDATETIME())");            
+            PreparedStatement st= this.conexion.prepareStatement("insert into "+
+            "Sales.SalesOrderHeader (RevisionNumber,OrderDate,DueDate,ShipDate,Status,OnlineOrderFlag,CustomerID,BilltoAddressID,ShipToAddressID,ShipMethodID,SubTotal,TaxAmt,Freight,rowguid,ModifiedDate) "+"Values(SYSDATETIME(),SYSDATETIME(),SYSDATETIME(),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NEWID(),SYSDATETIME())");            
             st.setInt(2,soheader.getRevisionNumber());
             st.setString(3,soheader.getOrderDate());
             st.setString(4,soheader.getDueDate());
             st.setString(5,soheader.getShipDate());
             st.setInt(6,soheader.getStatus());
             st.setBoolean(7,soheader.getOnlineOrderFlag());
-            st.setInt(8,soheader.getSalesOrder());
-            st.setInt(9,soheader.getPurchaseOrderNumber());
+            st.setInt(8,soheader.getSalesOrder());            
             st.setInt(10,soheader.getCustomerID());
             st.setInt(11,soheader.getSalesPersonID());
             st.setInt(12,soheader.getTerritoryID());
@@ -32,8 +32,7 @@ public class ImplSOrderHeader extends ConexionI2SS implements SOHDAO {
             st.setInt(18,soheader.getCurrencyRateID());
             st.setString(19,soheader.getSubTotal());
             st.setString(20,soheader.getTaxAmt());
-            st.setString(21,soheader.getFreight());
-            st.setString(22,soheader.getTotalDue());
+            st.setString(21,soheader.getFreight());            
             st.setString(23,soheader.getComment());
             st.setString(24,soheader.getRowguid());
             st.setString(25,soheader.getModifiedDate());

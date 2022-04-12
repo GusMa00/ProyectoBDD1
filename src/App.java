@@ -1,4 +1,3 @@
-import java.sql.*;
 import java.util.Scanner;
 import Demos.DemoCustomer;
 import Demos.DemoNuevaOrden;
