@@ -20,13 +20,11 @@ public class ImplSOrderDetail extends ConexionI2SS implements SODDAO {
             st.setString(6, sodetail.getUnitPrice());
             st.setString(7, sodetail.getUnitPriceDiscount());                        
             st.executeUpdate();
-
         }catch (Exception e){
             throw e;
         } finally {
             this.cerrar();
-        }
-        
+        }        
     }
 
     @Override
@@ -43,13 +41,11 @@ public class ImplSOrderDetail extends ConexionI2SS implements SODDAO {
             st.setString(7, sodetail.getUnitPriceDiscount());                         
             st.setInt(8, sodetail.getSalesOrderDetailID());
             st.executeUpdate();
-
         }catch (Exception e){
             throw e;
         } finally{
             this.cerrar();
-        }
-        
+        }        
     }
 
     @Override
@@ -63,8 +59,7 @@ public class ImplSOrderDetail extends ConexionI2SS implements SODDAO {
             throw e;
         } finally {
             this.cerrar();
-        }
-        
+        }        
     }
     
 
@@ -92,6 +87,5 @@ public class ImplSOrderDetail extends ConexionI2SS implements SODDAO {
         }finally{
             this.cerrar();
         }        
-    }    
-    
+    }        
 }

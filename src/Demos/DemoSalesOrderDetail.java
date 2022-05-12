@@ -48,9 +48,7 @@ public class DemoSalesOrderDetail {
             dao.registrar(sorderdetail);
         }catch(Exception e){
             e.printStackTrace();
-        }
-        
-
+        }        
     }
 
     public static void delsod(){

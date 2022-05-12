@@ -5,8 +5,6 @@ import Demos.DemoSalesOrderDetail;
 import Demos.DemoSalesOrderHEader;
 import Demos.DemoSpecialOffer;
 
-
-
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Comprobacion de conexion:");
@@ -17,6 +15,8 @@ public class App {
         //DemoCustomer.listcus();
         //DemoSalesOrderDetail.listsod();
         // Variable para la conexion 
+
+        //SET DATEFORMAT 
         System.out.println("Seleccione un demo: \n");
         System.out.println("1. Customer");
         System.out.println("2. SalesOrderDetail");
@@ -38,7 +38,7 @@ public class App {
                 DemoSpecialOffer.demogenerica();
             break;
             case 5: 
-                //DemoNuevaOrden.;
+                //DemoNuevaOrden.iniciar_nuorden();
             break;
         }
     } 

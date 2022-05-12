@@ -1,7 +1,5 @@
 package Demos;
-
 import java.util.Scanner;
-
 import DAO.SOHDAO;
 import DAO.soh;
 import ImpDAO.ImplSOrderHeader;
@@ -33,9 +31,18 @@ public class DemoSalesOrderHEader {
     }
 
     public static void cresoh(){
+        Scanner sch = new Scanner(System.in);
+        soh sorderheader = new soh();
+        System.out.println("Demo C");  
+           
+        try{
+            SOHDAO dao = new ImplSOrderHeader();
+            dao.registrar(sorderheader);
+        }catch(Exception e){
+            e.printStackTrace();
+        }   
 
     }
-
 
     public static void listsoh(){
         soh SalOrderHead = new soh();
@@ -49,7 +56,17 @@ public class DemoSalesOrderHEader {
     }
 
     public static void actsoh(){
-        
+        Scanner sch = new Scanner(System.in);
+        soh sorderheader = new soh();
+        System.out.println("Demo U");     
+
+
+        try{
+            SOHDAO dao = new ImplSOrderHeader();
+            dao.modificar(sorderheader);
+        }catch(Exception e){
+            e.printStackTrace();
+        }   
     }
 
     public static void delsoh(){
