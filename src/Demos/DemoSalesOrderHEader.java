@@ -34,7 +34,7 @@ public class DemoSalesOrderHEader {
         Scanner sch = new Scanner(System.in);
         soh sorderheader = new soh();
         System.out.println("Demo C");  
-           
+        sorderheader.setRevisionNumber(1);
         try{
             SOHDAO dao = new ImplSOrderHeader();
             dao.registrar(sorderheader);

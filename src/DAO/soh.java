@@ -7,9 +7,10 @@ public class soh {
     private String DueDate;
     private String ShipDate;
     private int Status;
-    private boolean OnlineOrderFlag;
-    private int SalesOrder;
+    private int OnlineOrderFlag;
+    private int SalesOrderNumber;
     private int PurchaseOrderNumber;
+    private String AccountNumber;
     private int CustomerID;
     private int SalesPersonID;
     private int TerritoryID;
@@ -76,24 +77,20 @@ public class soh {
         this.Status = Status;
     }
 
-    public boolean isOnlineOrderFlag() {
+    public int getOnlineOrderFlag() {
         return this.OnlineOrderFlag;
     }
 
-    public boolean getOnlineOrderFlag() {
-        return this.OnlineOrderFlag;
-    }
-
-    public void setOnlineOrderFlag(boolean OnlineOrderFlag) {
+    public void setOnlineOrderFlag(int OnlineOrderFlag) {
         this.OnlineOrderFlag = OnlineOrderFlag;
     }
 
-    public int getSalesOrder() {
-        return this.SalesOrder;
+    public int getSalesOrderNumber() {
+        return this.SalesOrderNumber;
     }
 
-    public void setSalesOrder(int SalesOrder) {
-        this.SalesOrder = SalesOrder;
+    public void setSalesOrderNumber(int SalesOrderNumber) {
+        this.SalesOrderNumber = SalesOrderNumber;
     }
 
     public int getPurchaseOrderNumber() {
@@ -102,6 +99,14 @@ public class soh {
 
     public void setPurchaseOrderNumber(int PurchaseOrderNumber) {
         this.PurchaseOrderNumber = PurchaseOrderNumber;
+    }
+
+    public String getAccountNumber() {
+        return this.AccountNumber;
+    }
+
+    public void setAccountNumber(String AccountNumber) {
+        this.AccountNumber = AccountNumber;
     }
 
     public int getCustomerID() {
@@ -231,6 +236,9 @@ public class soh {
     public void setModifiedDate(String ModifiedDate) {
         this.ModifiedDate = ModifiedDate;
     }
+
+    
+
     
 
     

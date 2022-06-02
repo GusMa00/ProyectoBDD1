@@ -13,13 +13,10 @@ import DAO.soh;
 import ImpDAO.ImplSOrderHeader;
 
 public class ImpNuevaOrden extends ConexionI2SS {
+    int vs;
 
     public static void inssoh(){
-        try{
-
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+        
     }
 
     public static void inssod(){
@@ -41,13 +38,16 @@ public class ImpNuevaOrden extends ConexionI2SS {
         }        
     }
     
-    public void valinv() throws Exception{
+    public void deminssoh() throws Exception{                    
         try{
             this.conectar();
-            CallableStatement cs = conexion.prepareCall("{CALL Inventario_Check_SP(?)}");            
-            cs.registerOutParameter(1, java.sql.Types.VARCHAR);
-            String res =cs.getString(1);
+            CallableStatement csisoh = conexion.prepareCall("{call sp_insert_OrderHeader(?,?)}");            
+            csisoh.registerOutParameter(1, java.sql.Types.VARCHAR);
+            csisoh.executeUpdate();
+            String res =csisoh.getString(1);
             System.out.println(res);
+
+
         }catch (Exception e){
             throw e;
         }finally{
