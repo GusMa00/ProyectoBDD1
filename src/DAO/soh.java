@@ -1,15 +1,17 @@
 package DAO;
+import java.sql.Date;
+import java.math.BigDecimal;
 
 public class soh {
     private int SalesOrderID;
     private int RevisionNumber;
-    private String OrderDate;
-    private String DueDate;
-    private String ShipDate;
+    private Date OrderDate;
+    private Date DueDate;
+    private Date ShipDate;
     private int Status;
-    private int OnlineOrderFlag;
-    private int SalesOrderNumber;
-    private int PurchaseOrderNumber;
+    private boolean OnlineOrderFlag;
+    private String SalesOrderNumber;
+    private String PurchaseOrderNumber;
     private String AccountNumber;
     private int CustomerID;
     private int SalesPersonID;
@@ -20,13 +22,14 @@ public class soh {
     private int CreditCardID;
     private String CreditCardApprovalCode;
     private int CurrencyRateID;
-    private String SubTotal;
-    private String TaxAmt;
-    private String Freight;
-    private String TotalDue;
+    private BigDecimal SubTotal;
+    private BigDecimal TaxAmt;
+    private BigDecimal Freight;
+    private BigDecimal TotalDue;
     private String Comment;
     private String rowguid;
-    private String ModifiedDate;
+    private Date ModifiedDate;
+
 
 
     public int getSalesOrderID() {
@@ -41,31 +44,31 @@ public class soh {
         return this.RevisionNumber;
     }
 
-    public void setRevisionNumber(int RevisionNumber) {
-        this.RevisionNumber = RevisionNumber;
+    public void setRevisionNumber(int i) {
+        this.RevisionNumber = i;
     }
 
-    public String getOrderDate() {
+    public Date getOrderDate() {
         return this.OrderDate;
     }
 
-    public void setOrderDate(String OrderDate) {
+    public void setOrderDate(Date OrderDate) {
         this.OrderDate = OrderDate;
     }
 
-    public String getDueDate() {
+    public Date getDueDate() {
         return this.DueDate;
     }
 
-    public void setDueDate(String DueDate) {
+    public void setDueDate(Date DueDate) {
         this.DueDate = DueDate;
     }
 
-    public String getShipDate() {
+    public Date getShipDate() {
         return this.ShipDate;
     }
 
-    public void setShipDate(String ShipDate) {
+    public void setShipDate(Date ShipDate) {
         this.ShipDate = ShipDate;
     }
 
@@ -77,27 +80,31 @@ public class soh {
         this.Status = Status;
     }
 
-    public int getOnlineOrderFlag() {
+    public boolean isOnlineOrderFlag() {
         return this.OnlineOrderFlag;
     }
 
-    public void setOnlineOrderFlag(int OnlineOrderFlag) {
+    public boolean getOnlineOrderFlag() {
+        return this.OnlineOrderFlag;
+    }
+
+    public void setOnlineOrderFlag(boolean OnlineOrderFlag) {
         this.OnlineOrderFlag = OnlineOrderFlag;
     }
 
-    public int getSalesOrderNumber() {
+    public String getSalesOrderNumber() {
         return this.SalesOrderNumber;
     }
 
-    public void setSalesOrderNumber(int SalesOrderNumber) {
+    public void setSalesOrderNumber(String SalesOrderNumber) {
         this.SalesOrderNumber = SalesOrderNumber;
     }
 
-    public int getPurchaseOrderNumber() {
+    public String getPurchaseOrderNumber() {
         return this.PurchaseOrderNumber;
     }
 
-    public void setPurchaseOrderNumber(int PurchaseOrderNumber) {
+    public void setPurchaseOrderNumber(String PurchaseOrderNumber) {
         this.PurchaseOrderNumber = PurchaseOrderNumber;
     }
 
@@ -181,35 +188,35 @@ public class soh {
         this.CurrencyRateID = CurrencyRateID;
     }
 
-    public String getSubTotal() {
+    public BigDecimal getSubTotal() {
         return this.SubTotal;
     }
 
-    public void setSubTotal(String SubTotal) {
+    public void setSubTotal(BigDecimal SubTotal) {
         this.SubTotal = SubTotal;
     }
 
-    public String getTaxAmt() {
+    public BigDecimal getTaxAmt() {
         return this.TaxAmt;
     }
 
-    public void setTaxAmt(String TaxAmt) {
+    public void setTaxAmt(BigDecimal TaxAmt) {
         this.TaxAmt = TaxAmt;
     }
 
-    public String getFreight() {
+    public BigDecimal getFreight() {
         return this.Freight;
     }
 
-    public void setFreight(String Freight) {
+    public void setFreight(BigDecimal Freight) {
         this.Freight = Freight;
     }
 
-    public String getTotalDue() {
+    public BigDecimal getTotalDue() {
         return this.TotalDue;
     }
 
-    public void setTotalDue(String TotalDue) {
+    public void setTotalDue(BigDecimal TotalDue) {
         this.TotalDue = TotalDue;
     }
 
@@ -229,14 +236,13 @@ public class soh {
         this.rowguid = rowguid;
     }
 
-    public String getModifiedDate() {
+    public Date getModifiedDate() {
         return this.ModifiedDate;
     }
 
-    public void setModifiedDate(String ModifiedDate) {
+    public void setModifiedDate(Date ModifiedDate) {
         this.ModifiedDate = ModifiedDate;
     }
-
     
 
     

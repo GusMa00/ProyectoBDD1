@@ -22,6 +22,7 @@ public class App {
         System.out.println("2. SalesOrderDetail");
         System.out.println("3. SalesOrderHeader");
         System.out.println("4. SpecialOfferProduct");
+        System.out.println("5. Insercion final");
         Scanner scmain = new Scanner(System.in);
         int op = scmain.nextInt();
         switch(op){
@@ -38,7 +39,7 @@ public class App {
                 DemoSpecialOffer.demogenerica();
             break;
             case 5: 
-                //DemoNuevaOrden.iniciar_nuorden();
+                DemoNuevaOrden.iniciar_nuorden();
             break;
         }
     } 

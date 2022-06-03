@@ -11,7 +11,7 @@ public class ImplSOrderDetail extends ConexionI2SS implements SODDAO {
     public void registrar(sod sodetail) throws Exception {
         try{
             this.conectar();
-            PreparedStatement st= this.conexion.prepareStatement("insert into "+"Sales.SalesOrderDetail (SalesOrderID,CarrierTrackingNumber,OrderQty,ProductID,SpecialOfferID,UnitPrice,UnitPriceDiscount,rowguid,ModifiedDate)"+"Values(?,?,?,?,?,?,?)");            
+            PreparedStatement st= this.conexion.prepareStatement("insert into "+"Sales.SalesOrderDetail (SalesOrderID,CarrierTrackingNumber,OrderQty,ProductID,SpecialOfferID,UnitPrice,UnitPriceDiscount,rowguid,ModifiedDate)"+"Values(?,?,?,?,?,NEWID(),SYSDATETIME())");            
             st.setInt(1, sodetail.getSalesOrderID());
             st.setString(2, sodetail.getCarrierTrackingNumber());
             st.setInt(3, sodetail.getOrderQty());
@@ -31,15 +31,14 @@ public class ImplSOrderDetail extends ConexionI2SS implements SODDAO {
     public void modificar(sod sodetail) throws Exception {        
         try{
             this.conectar();
-            PreparedStatement st= this.conexion.prepareStatement("update Sales.SalesOrderDetail set SalesOrderID =?,CarrierTrackingNumber = ?, OrderQty = ?, ProductID = ?, SpecialOfferID= ?, UnitPrice = ?, UnitPriceDiscount = ?, rowguid = NEWID(), ModifiedDate = SYSDATETIME() where SalesOrderDetailID = ?");                        
-            st.setInt(1, sodetail.getSalesOrderID());
-            st.setString(2, sodetail.getCarrierTrackingNumber());
-            st.setInt(3, sodetail.getOrderQty());
-            st.setInt(4, sodetail.getProductID());
-            st.setInt(5, sodetail.getSpecialOfferID());
-            st.setString(6, sodetail.getUnitPrice());
-            st.setString(7, sodetail.getUnitPriceDiscount());                         
-            st.setInt(8, sodetail.getSalesOrderDetailID());
+            PreparedStatement st= this.conexion.prepareStatement("update Sales.SalesOrderDetail set CarrierTrackingNumber = ?, OrderQty = ?, ProductID = ?, SpecialOfferID= ?, UnitPrice = ?, UnitPriceDiscount = ?, rowguid = NEWID(), ModifiedDate = SYSDATETIME() where SalesOrderDetailID = ?");                                    
+            st.setString(1, sodetail.getCarrierTrackingNumber());
+            st.setInt(2, sodetail.getOrderQty());
+            st.setInt(3, sodetail.getProductID());
+            st.setInt(4, sodetail.getSpecialOfferID());
+            st.setString(5, sodetail.getUnitPrice());
+            st.setString(6, sodetail.getUnitPriceDiscount());                         
+            st.setInt(7, sodetail.getSalesOrderDetailID());
             st.executeUpdate();
         }catch (Exception e){
             throw e;

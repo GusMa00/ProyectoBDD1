@@ -15,20 +15,20 @@ public class ImplSOrderHeader extends ConexionI2SS implements SOHDAO {
             PreparedStatement st= this.conexion.prepareStatement("insert into "+
             "Sales.SalesOrderHeader (RevisionNumber,OrderDate,DueDate,ShipDate,Status,OnlineOrderFlag,CustomerID,BillToAddressID,ShipToAddressID,ShipMethodID,SubTotal,TaxAmt,Freight,rowguid,ModifiedDate) "+"Values(?,SYSDATETIME(),SYSDATETIME(),SYSDATETIME(),?,?,?,?,?,?,?,?,?,NEWID(),SYSDATETIME())");                                   
             st.setInt(1, soheader.getRevisionNumber());
-            st.setString(2,soheader.getOrderDate());
-            st.setString(3,soheader.getDueDate());
-            st.setString(4,soheader.getShipDate());
+            st.setDate(2,soheader.getOrderDate());
+            st.setDate(3,soheader.getDueDate());
+            st.setDate(4,soheader.getShipDate());
             st.setInt(5,soheader.getStatus());
-            st.setInt(6,soheader.getOnlineOrderFlag());        
+            st.setBoolean(6,soheader.getOnlineOrderFlag());        
             st.setInt(7,soheader.getCustomerID());                        
             st.setInt(8,soheader.getBillToAddressID());
             st.setInt(9,soheader.getShipToAddressID());
             st.setInt(10,soheader.getShipMethodID());            
-            st.setString(11,soheader.getSubTotal());
-            st.setString(12,soheader.getTaxAmt());
-            st.setString(13,soheader.getFreight());                        
+            st.setBigDecimal(11,soheader.getSubTotal());
+            st.setBigDecimal(12,soheader.getTaxAmt());
+            st.setBigDecimal(13,soheader.getFreight());                        
             st.setString(14,soheader.getRowguid());
-            st.setString(15,soheader.getModifiedDate());
+            st.setDate(15,soheader.getModifiedDate());
             st.executeUpdate();
         }catch (Exception e){
             throw e;
@@ -46,20 +46,20 @@ public class ImplSOrderHeader extends ConexionI2SS implements SOHDAO {
             this.conectar();
             PreparedStatement st= this.conexion.prepareStatement("update Sales.SalesOrderHeader set RevisionNumber= ?, OrderDate= SYSDATETIME(), DueDate = SYSDATETIME(), ShipDate = SYSDATETIME(), Status = ? , OnlineOrderFlag = ?,  CustomerID = ?, BillToAddressID = ?, ShipToAddressID = ?, ShipMethodID = ?,  SubTotal = ?, TaxAmt = ?, Freight = ?,Rowguid = NEWID(), ModifiedDate = SYSDATETIME() where SalesOrderID = ?");                                    
             st.setInt(1, soheader.getRevisionNumber());
-            st.setString(2,soheader.getOrderDate());
-            st.setString(3,soheader.getDueDate());
-            st.setString(4,soheader.getShipDate());
+            st.setDate(2,soheader.getOrderDate());
+            st.setDate(3,soheader.getDueDate());
+            st.setDate(4,soheader.getShipDate());
             st.setInt(5,soheader.getStatus());
-            st.setInt(6,soheader.getOnlineOrderFlag());        
+            st.setBoolean(6,soheader.getOnlineOrderFlag());        
             st.setInt(7,soheader.getCustomerID());                        
             st.setInt(8,soheader.getBillToAddressID());
             st.setInt(9,soheader.getShipToAddressID());
             st.setInt(10,soheader.getShipMethodID());            
-            st.setString(11,soheader.getSubTotal());
-            st.setString(12,soheader.getTaxAmt());
-            st.setString(13,soheader.getFreight());                        
+            st.setBigDecimal(11,soheader.getSubTotal());
+            st.setBigDecimal(12,soheader.getTaxAmt());
+            st.setBigDecimal(13,soheader.getFreight());                        
             st.setString(14,soheader.getRowguid());
-            st.setString(15,soheader.getModifiedDate());
+            st.setDate(15,soheader.getModifiedDate());
             st.setInt(16, soheader.getSalesOrderID());
             st.executeUpdate();
 
