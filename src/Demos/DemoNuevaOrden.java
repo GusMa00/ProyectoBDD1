@@ -25,8 +25,8 @@ public class DemoNuevaOrden extends ConexionI2SS {
         //int prodcant = sc.nextInt();       
         System.out.println("Insert en SOH \n");
         inssoh();
-        //System.out.println("Insert en SOD \n");
-        //inssod();
+        System.out.println("Insert en SOD \n");
+        inssod();
         
     }
     
@@ -79,13 +79,13 @@ public class DemoNuevaOrden extends ConexionI2SS {
 
         String connectionUrl = "jdbc:sqlserver://localhost:1433;instanceName=IDEAPAD-GAMING-\\MSSQL2;databaseName=AdventureWorks2019;user=sa;password=cacas;encrypt=true;trustServerCertificate=true";
         try (Connection con = DriverManager.getConnection(connectionUrl); Statement stmt = con.createStatement();) {
-            CallableStatement cs = con.prepareCall("{CALL sp_insercion_SOH(?,?,?,?,?,?,?)}");            
-            cs.setInt(1, idpac);
-            cs.setInt(2, cancomp);            
-            cs.registerOutParameter(7, java.sql.Types.VARCHAR);
+            CallableStatement cs = con.prepareCall("{CALL sp_insercion_SOD_TEST(?,?.?)}");            
+            cs.setInt(1, idpac);        
+            cs.setInt(2,cancomp);
+            cs.registerOutParameter(3, java.sql.Types.VARCHAR);
 
-            cs.executeUpdate();
-            String res =cs.getString(7);
+            cs.execute();
+            String res =cs.getString(3);
             System.out.println(res);
         }
         // Handler para errores.
